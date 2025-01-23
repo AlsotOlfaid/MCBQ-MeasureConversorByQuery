@@ -18,7 +18,7 @@ namespace MeasureConversorByQuery.MeasureClasses
         }
 
         // Data List
-        public static List<Measure> VolumeMeasures = new List<Measure>()
+        internal static List<Measure> VolumeMeasures = new List<Measure>()
         {
             new Measure{ Unit = Volume.Yoctoliters, Value = 1e-24, Prefix = "yL", Tag = Tags.MetricExtended},
             new Measure{ Unit = Volume.Zeptoliters, Value = 1e-21, Prefix = "zL", Tag = Tags.MetricExtended},

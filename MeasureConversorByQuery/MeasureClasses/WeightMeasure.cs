@@ -12,7 +12,7 @@ namespace MeasureConversorByQuery.MeasureClasses
             return WeightMeasures.Where(m => m.Unit.Equals(measureType)).Single();
         }
 
-        public static List<Measure> WeightMeasures = new List<Measure>()
+        internal static List<Measure> WeightMeasures = new List<Measure>()
         {
             new Measure{ Unit = Weight.Yoctograms, Value = 1e-27, Prefix = "yg", Tag = Tags.MetricExtended},
             new Measure{ Unit = Weight.Zeptograms, Value = 1e-24, Prefix = "zg", Tag = Tags.MetricExtended},

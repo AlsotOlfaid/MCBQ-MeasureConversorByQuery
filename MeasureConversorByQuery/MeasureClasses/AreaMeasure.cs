@@ -20,7 +20,7 @@ namespace MeasureConversorByQuery.MeasureClasses
         }
 
         //General static Data List
-        public static List<Measure> AreaMeasures = new List<Measure>()
+        internal static List<Measure> AreaMeasures = new List<Measure>()
         {
             //Metric
             new Measure{ Unit = Area.SquareNanometers, Value = 1e-18, Prefix = "nm²", Tag = Tags.Metric},
