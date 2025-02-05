@@ -52,8 +52,8 @@ namespace MeasureConversorByQuery
 
         public Conversor<TEnum> To(TEnum toMeasure)
         {
-            Measure selectedFromMeasure = SelectedMeasure.GetMeasureByType(_FromMeasure);
-            Measure selectedToMeasure = SelectedMeasure.GetMeasureByType(toMeasure);
+            Measure selectedFromMeasure = SelectedMeasure.GetMeasuresByType(_FromMeasure).Single();
+            Measure selectedToMeasure = SelectedMeasure.GetMeasuresByType(toMeasure).Single();
 
             //Conversion to SqM
             double valueInSqM = _Value * selectedFromMeasure.Value;

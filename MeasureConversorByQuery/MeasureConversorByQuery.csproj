@@ -7,15 +7,16 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>MCBQ - MeasureConversorByQuery</Title>
     <Description>Library to measure conversions using a structure based on chained methods like Linq</Description>
-    <PackageIcon>MCBQLogo.png</PackageIcon>
+    <PackageIcon>MCBQLogo-removebg-preview.png</PackageIcon>
     <RepositoryUrl>https://github.com/AlsotOlfaid/MCBQ-MeasureConversorByQuery.git</RepositoryUrl>
     <PackageReleaseNotes>First Publishing</PackageReleaseNotes>
     <PackAsTool>False</PackAsTool>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<Authors>Alsot</Authors>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\..\ProjectsPNGs\MCBQLogo.png">
+    <None Include="..\..\..\ProjectsPNGs\MCBQLogo-removebg-preview.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>

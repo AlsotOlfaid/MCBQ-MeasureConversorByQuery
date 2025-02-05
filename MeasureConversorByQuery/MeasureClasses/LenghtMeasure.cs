@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static MeasureConversorByQuery.Enums.ConversorValues;
 using static MeasureConversorByQuery.Enums.MeasureTags;
+using MeasureConversorByQuery.Enums;
 
 namespace MeasureConversorByQuery.MeasureClasses
 {
@@ -14,9 +15,38 @@ namespace MeasureConversorByQuery.MeasureClasses
     public class LenghtMeasure : MeasureExtension
     {
         // Constructor
-        public override Measure GetMeasureByType(Enum measureType)
+        public List<Measure> _Result { get; set; }
+
+        public override List<Measure> GetAllMeasures()
         {
-            return LenghtMeasures.Where(m => m.Unit.Equals(measureType)).Single();
+            return LenghtMeasures.ToList();
+        }
+        public override MeasureExtension GetMeasuresByType(Enum measureType)
+        {
+            _Result = LenghtMeasures.Where(m => m.Unit.Equals(measureType)).ToList();
+
+            return this;
+        }
+
+        public override MeasureExtension GetMeasuresByTag(MeasureTags.Tags measureTag)
+        {
+            _Result = LenghtMeasures.Where(m => m.Tag.Equals(measureTag)).ToList();
+            return this;
+        }
+
+        public override Measure First()
+        {
+            return _Result.First();
+        }
+
+        public override Measure Last()
+        {
+            return _Result.Last();
+        }
+
+        public override Measure Single()
+        {
+            return _Result.Single();
         }
 
         // Measure List :: This list is "Internal" to avoid unwanted changes

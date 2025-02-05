@@ -9,10 +9,41 @@ namespace MeasureConversorByQuery.MeasureClasses
 {
     public class TimeMeasure : MeasureExtension
     {
-        public override Measure GetMeasureByType(Enum measureType)
+        public List<Measure> _Result { get; set; }
+
+        public override List<Measure> GetAllMeasures()
         {
-            return TimeMeasures.Where(m => m.Unit.Equals(measureType)).Single();
+            return TimeMeasures.ToList();
         }
+
+        public override MeasureExtension GetMeasuresByType(Enum measureType)
+        {
+            _Result = TimeMeasures.Where(m => m.Unit.Equals(measureType)).ToList();
+
+            return this;
+        }
+
+        public override MeasureExtension GetMeasuresByTag(MeasureTags.Tags measureTag)
+        {
+            _Result = TimeMeasures.Where(m => m.Tag.Equals(measureTag)).ToList();
+            return this;
+        }
+
+        public override Measure First()
+        {
+            return _Result.First();
+        }
+
+        public override Measure Last()
+        {
+            return _Result.Last();
+        }
+
+        public override Measure Single()
+        {
+            return _Result.Single();
+        }
+
 
         internal static List<Measure> TimeMeasures = new List<Measure>()
         {

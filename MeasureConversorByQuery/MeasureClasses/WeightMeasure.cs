@@ -2,14 +2,45 @@
 using MeasureConversorByQuery.ExtensionClasses;
 using static MeasureConversorByQuery.Enums.ConversorValues;
 using static MeasureConversorByQuery.Enums.MeasureTags;
+using MeasureConversorByQuery.Enums;
 
 namespace MeasureConversorByQuery.MeasureClasses
 {
     internal class WeightMeasure : MeasureExtension
     {
-        public override Measure GetMeasureByType(Enum measureType)
+
+        public List<Measure> _Result { get; set; }
+
+        public override List<Measure> GetAllMeasures()
         {
-            return WeightMeasures.Where(m => m.Unit.Equals(measureType)).Single();
+            return WeightMeasures.ToList();
+        }
+        public override MeasureExtension GetMeasuresByType(Enum measureType)
+        {
+            _Result = WeightMeasures.Where(m => m.Unit.Equals(measureType)).ToList();
+
+            return this;
+        }
+
+        public override MeasureExtension GetMeasuresByTag(MeasureTags.Tags measureTag)
+        {
+            _Result = WeightMeasures.Where(m => m.Tag.Equals(measureTag)).ToList();
+            return this;
+        }
+
+        public override Measure First()
+        {
+            return _Result.First();
+        }
+
+        public override Measure Last()
+        {
+            return _Result.Last();
+        }
+
+        public override Measure Single()
+        {
+            return _Result.Single();
         }
 
         internal static List<Measure> WeightMeasures = new List<Measure>()
